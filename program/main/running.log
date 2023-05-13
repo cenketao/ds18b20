@@ -1,0 +1,394 @@
+a.out : 11:46:27 [INFO ] creat socket[4] successfully
+
+a.out : 11:46:27 [INFO ] Table created successfully
+
+a.out : 11:46:28 [INFO ] socket[4] connected!
+a.out : 11:46:28 [INFO ] Table select successfully
+
+a.out : 11:46:28 [INFO ] database no have data!
+
+a.out : 11:46:28 [ERROR] socket rite to server failure!
+a.out : 11:46:28 [INFO ] Table insert  successfully
+a.out : 11:46:28 [ERROR] INSERT to database failure!
+a.out : 11:46:30 [INFO ] It  is not time to sample! 
+a.out : 11:46:30 [INFO ] socket[4] connected!
+a.out : 11:46:30 [INFO ] Table select successfully
+
+a.out : 11:46:30 [INFO ] database no have data!
+
+a.out : 11:46:32 [INFO ] It  is not time to sample! 
+a.out : 11:46:32 [INFO ] socket[4] connected!
+a.out : 11:46:32 [INFO ] Table select successfully
+
+a.out : 11:46:32 [INFO ] database no have data!
+
+a.out : 11:46:34 [INFO ] It  is not time to sample! 
+a.out : 11:46:34 [INFO ] socket[4] connected!
+a.out : 11:46:34 [INFO ] Table select successfully
+
+a.out : 11:46:34 [INFO ] database no have data!
+
+a.out : 11:46:36 [INFO ] It  is not time to sample! 
+a.out : 11:46:36 [INFO ] socket[4] connected!
+a.out : 11:46:36 [INFO ] Table select successfully
+
+a.out : 11:46:36 [INFO ] database no have data!
+
+a.out : 11:46:39 [INFO ] socket[4] connected!
+a.out : 11:46:39 [INFO ] Table select successfully
+
+a.out : 11:46:39 [INFO ] database no have data!
+
+a.out : 11:46:39 [ERROR] socket rite to server failure!
+a.out : 11:46:39 [INFO ] Table insert  successfully
+a.out : 11:46:39 [ERROR] INSERT to database failure!
+a.out : 11:46:41 [INFO ] It  is not time to sample! 
+a.out : 11:46:41 [INFO ] socket[4] connected!
+a.out : 11:46:41 [INFO ] Table select successfully
+
+a.out : 11:46:41 [INFO ] database no have data!
+
+a.out : 11:46:43 [INFO ] It  is not time to sample! 
+a.out : 11:46:43 [INFO ] socket[4] connected!
+a.out : 11:46:43 [INFO ] Table select successfully
+
+a.out : 11:46:43 [INFO ] database no have data!
+
+a.out : 11:46:45 [INFO ] It  is not time to sample! 
+a.out : 11:46:45 [INFO ] socket[4] connected!
+a.out : 11:46:45 [INFO ] Table select successfully
+
+a.out : 11:46:45 [INFO ] database no have data!
+
+a.out : 11:46:47 [INFO ] It  is not time to sample! 
+a.out : 11:46:47 [INFO ] socket[4] connected!
+a.out : 11:46:47 [INFO ] Table select successfully
+
+a.out : 11:46:47 [INFO ] database no have data!
+
+a.out : 11:46:50 [INFO ] socket[4] connected!
+a.out : 11:46:50 [INFO ] Table select successfully
+
+a.out : 11:46:50 [INFO ] database no have data!
+
+a.out : 11:46:50 [ERROR] socket rite to server failure!
+a.out : 11:46:50 [INFO ] Table insert  successfully
+a.out : 11:46:50 [ERROR] INSERT to database failure!
+a.out : 11:46:52 [INFO ] It  is not time to sample! 
+a.out : 11:46:52 [INFO ] socket[4] connected!
+a.out : 11:46:52 [INFO ] Table select successfully
+
+a.out : 11:46:52 [INFO ] database no have data!
+
+a.out : 11:46:54 [INFO ] It  is not time to sample! 
+a.out : 11:46:54 [INFO ] socket[4] connected!
+a.out : 11:46:54 [INFO ] Table select successfully
+
+a.out : 11:46:54 [INFO ] database no have data!
+
+a.out : 11:46:56 [INFO ] It  is not time to sample! 
+a.out : 11:46:56 [INFO ] socket[4] connected!
+a.out : 11:46:56 [INFO ] Table select successfully
+
+a.out : 11:46:56 [INFO ] database no have data!
+
+a.out : 12:15:33 [INFO ] creat socket[4] successfully
+
+a.out : 12:15:33 [INFO ] Table created successfully
+
+a.out : 12:15:33 [INFO ] socket[4] connected!
+a.out : 12:15:33 [INFO ] Table select successfully
+
+a.out : 12:15:33 [INFO ] database write to server successfully!
+a.out : 12:15:33 [INFO ] Delete first data successfully!
+
+a.out : 12:15:33 [INFO ] DELETE sqlite database successfully!
+a.out : 12:15:33 [ERROR] socket rite to server failure!
+a.out : 12:15:33 [INFO ] Table insert  successfully
+a.out : 12:15:33 [ERROR] INSERT to database failure!
+a.out : 12:15:35 [INFO ] It  is not time to sample! 
+a.out : 12:15:35 [INFO ] socket[4] connected!
+a.out : 12:15:35 [INFO ] Table select successfully
+
+a.out : 12:15:35 [INFO ] database write to server successfully!
+a.out : 12:15:35 [INFO ] Delete first data successfully!
+
+a.out : 12:15:35 [INFO ] DELETE sqlite database successfully!
+a.out : 12:15:37 [INFO ] It  is not time to sample! 
+a.out : 12:15:37 [INFO ] socket[4] connected!
+a.out : 12:15:37 [INFO ] Table select successfully
+
+a.out : 12:15:37 [INFO ] database write to server successfully!
+a.out : 12:15:37 [INFO ] Delete first data successfully!
+
+a.out : 12:15:37 [INFO ] DELETE sqlite database successfully!
+a.out : 12:15:39 [INFO ] It  is not time to sample! 
+a.out : 12:15:39 [INFO ] socket[4] connected!
+a.out : 12:15:39 [INFO ] Table select successfully
+
+a.out : 12:15:39 [INFO ] database write to server successfully!
+a.out : 12:15:39 [INFO ] Delete first data successfully!
+
+a.out : 12:15:39 [INFO ] DELETE sqlite database successfully!
+a.out : 12:15:41 [INFO ] It  is not time to sample! 
+a.out : 12:15:41 [INFO ] socket[4] connected!
+a.out : 12:15:41 [INFO ] Table select successfully
+
+a.out : 12:15:41 [INFO ] database write to server successfully!
+a.out : 12:15:42 [INFO ] Delete first data successfully!
+
+a.out : 12:15:42 [INFO ] DELETE sqlite database successfully!
+a.out : 12:15:44 [INFO ] It  is not time to sample! 
+a.out : 12:15:44 [INFO ] socket[4] connected!
+a.out : 12:15:44 [INFO ] Table select successfully
+
+a.out : 12:15:44 [INFO ] database write to server successfully!
+a.out : 12:15:44 [INFO ] Delete first data successfully!
+
+a.out : 12:15:44 [INFO ] DELETE sqlite database successfully!
+a.out : 12:15:46 [INFO ] It  is not time to sample! 
+a.out : 12:15:46 [INFO ] socket[4] connected!
+a.out : 12:15:46 [INFO ] Table select successfully
+
+a.out : 12:15:46 [INFO ] database write to server successfully!
+a.out : 12:15:46 [INFO ] Delete first data successfully!
+
+a.out : 12:15:46 [INFO ] DELETE sqlite database successfully!
+a.out : 12:15:48 [WARN ] sockfd[4] disconnected!
+a.out : 12:15:48 [INFO ] creat socket[4] successfully
+
+a.out : 12:15:48 [ERROR] connect to server[192.168.2.40:8089]failure :Connection refused!
+a.out : 12:15:48 [ERROR] socket restart connect failure!
+a.out : 12:15:48 [WARN ] Breaking and write to database!
+a.out : 12:15:48 [INFO ] Table insert  successfully
+a.out : 12:15:50 [INFO ] It  is not time to sample! 
+a.out : 12:15:50 [INFO ] creat socket[4] successfully
+
+a.out : 12:15:50 [ERROR] connect to server[192.168.2.40:8089]failure :Connection refused!
+a.out : 12:15:50 [ERROR] socket restart connect failure!
+a.out : 12:15:50 [WARN ] Breaking and write to database!
+a.out : 12:15:52 [INFO ] It  is not time to sample! 
+a.out : 12:15:52 [INFO ] creat socket[4] successfully
+
+a.out : 12:15:52 [ERROR] connect to server[192.168.2.40:8089]failure :Connection refused!
+a.out : 12:15:52 [ERROR] socket restart connect failure!
+a.out : 12:15:52 [WARN ] Breaking and write to database!
+a.out : 12:15:54 [INFO ] It  is not time to sample! 
+a.out : 12:15:54 [INFO ] creat socket[4] successfully
+
+a.out : 12:15:54 [ERROR] connect to server[192.168.2.40:8089]failure :Connection refused!
+a.out : 12:15:54 [ERROR] socket restart connect failure!
+a.out : 12:15:54 [WARN ] Breaking and write to database!
+a.out : 12:15:56 [INFO ] It  is not time to sample! 
+a.out : 12:15:56 [INFO ] creat socket[4] successfully
+
+a.out : 12:15:56 [ERROR] connect to server[192.168.2.40:8089]failure :Connection refused!
+a.out : 12:15:56 [ERROR] socket restart connect failure!
+a.out : 12:15:56 [WARN ] Breaking and write to database!
+a.out : 12:15:58 [INFO ] It  is not time to sample! 
+a.out : 12:15:58 [INFO ] creat socket[4] successfully
+
+a.out : 12:15:58 [ERROR] connect to server[192.168.2.40:8089]failure :Connection refused!
+a.out : 12:15:58 [ERROR] socket restart connect failure!
+a.out : 12:15:58 [WARN ] Breaking and write to database!
+a.out : 12:16:00 [INFO ] It  is not time to sample! 
+a.out : 12:16:00 [INFO ] creat socket[4] successfully
+
+a.out : 12:16:00 [ERROR] connect to server[192.168.2.40:8089]failure :Connection refused!
+a.out : 12:16:00 [ERROR] socket restart connect failure!
+a.out : 12:16:00 [WARN ] Breaking and write to database!
+a.out : 12:16:02 [INFO ] It  is not time to sample! 
+a.out : 12:16:02 [INFO ] creat socket[4] successfully
+
+a.out : 12:16:02 [ERROR] connect to server[192.168.2.40:8089]failure :Connection refused!
+a.out : 12:16:02 [ERROR] socket restart connect failure!
+a.out : 12:16:02 [WARN ] Breaking and write to database!
+a.out : 12:16:05 [INFO ] creat socket[4] successfully
+
+a.out : 12:16:05 [ERROR] connect to server[192.168.2.40:8089]failure :Connection refused!
+a.out : 12:16:05 [ERROR] socket restart connect failure!
+a.out : 12:16:05 [WARN ] Breaking and write to database!
+a.out : 12:16:05 [INFO ] Table insert  successfully
+a.out : 12:16:07 [INFO ] It  is not time to sample! 
+a.out : 12:16:07 [INFO ] creat socket[4] successfully
+
+a.out : 12:16:07 [ERROR] connect to server[192.168.2.40:8089]failure :Connection refused!
+a.out : 12:16:07 [ERROR] socket restart connect failure!
+a.out : 12:16:07 [WARN ] Breaking and write to database!
+a.out : 12:16:09 [INFO ] It  is not time to sample! 
+a.out : 12:16:09 [INFO ] creat socket[4] successfully
+
+a.out : 12:16:09 [ERROR] connect to server[192.168.2.40:8089]failure :Connection refused!
+a.out : 12:16:09 [ERROR] socket restart connect failure!
+a.out : 12:16:09 [WARN ] Breaking and write to database!
+a.out : 12:16:11 [INFO ] It  is not time to sample! 
+a.out : 12:16:11 [INFO ] creat socket[4] successfully
+
+a.out : 12:16:11 [ERROR] connect to server[192.168.2.40:8089]failure :Connection refused!
+a.out : 12:16:11 [ERROR] socket restart connect failure!
+a.out : 12:16:11 [WARN ] Breaking and write to database!
+a.out : 12:16:13 [INFO ] It  is not time to sample! 
+a.out : 12:16:13 [INFO ] creat socket[4] successfully
+
+a.out : 12:16:13 [ERROR] connect to server[192.168.2.40:8089]failure :Connection refused!
+a.out : 12:16:13 [ERROR] socket restart connect failure!
+a.out : 12:16:13 [WARN ] Breaking and write to database!
+a.out : 12:16:15 [INFO ] It  is not time to sample! 
+a.out : 12:16:15 [INFO ] creat socket[4] successfully
+
+a.out : 12:16:15 [ERROR] connect to server[192.168.2.40:8089]failure :Connection refused!
+a.out : 12:16:15 [ERROR] socket restart connect failure!
+a.out : 12:16:15 [WARN ] Breaking and write to database!
+a.out : 12:16:17 [INFO ] It  is not time to sample! 
+a.out : 12:16:17 [INFO ] creat socket[4] successfully
+
+a.out : 12:16:17 [ERROR] connect to server[192.168.2.40:8089]failure :Connection refused!
+a.out : 12:16:17 [ERROR] socket restart connect failure!
+a.out : 12:16:17 [WARN ] Breaking and write to database!
+a.out : 12:16:19 [INFO ] It  is not time to sample! 
+a.out : 12:16:19 [INFO ] creat socket[4] successfully
+
+a.out : 12:16:19 [ERROR] connect to server[192.168.2.40:8089]failure :Connection refused!
+a.out : 12:16:19 [ERROR] socket restart connect failure!
+a.out : 12:16:19 [WARN ] Breaking and write to database!
+a.out : 12:16:22 [INFO ] creat socket[4] successfully
+
+a.out : 12:16:22 [ERROR] connect to server[192.168.2.40:8089]failure :Connection refused!
+a.out : 12:16:22 [ERROR] socket restart connect failure!
+a.out : 12:16:22 [WARN ] Breaking and write to database!
+a.out : 12:16:22 [INFO ] Table insert  successfully
+a.out : 12:16:24 [INFO ] It  is not time to sample! 
+a.out : 12:16:24 [INFO ] creat socket[4] successfully
+
+a.out : 12:16:24 [ERROR] connect to server[192.168.2.40:8089]failure :Connection refused!
+a.out : 12:16:24 [ERROR] socket restart connect failure!
+a.out : 12:16:24 [WARN ] Breaking and write to database!
+a.out : 12:16:26 [INFO ] It  is not time to sample! 
+a.out : 12:16:26 [INFO ] creat socket[4] successfully
+
+a.out : 12:16:26 [ERROR] connect to server[192.168.2.40:8089]failure :Connection refused!
+a.out : 12:16:26 [ERROR] socket restart connect failure!
+a.out : 12:16:26 [WARN ] Breaking and write to database!
+a.out : 12:16:28 [INFO ] It  is not time to sample! 
+a.out : 12:16:28 [INFO ] creat socket[4] successfully
+
+a.out : 12:16:28 [INFO ] socket restart connect successfully!
+a.out : 12:16:30 [INFO ] It  is not time to sample! 
+a.out : 12:16:30 [INFO ] socket[4] connected!
+a.out : 12:16:30 [INFO ] Table select successfully
+
+a.out : 12:16:30 [INFO ] database write to server successfully!
+a.out : 12:16:30 [INFO ] Delete first data successfully!
+
+a.out : 12:16:30 [INFO ] DELETE sqlite database successfully!
+a.out : 12:16:32 [INFO ] It  is not time to sample! 
+a.out : 12:16:32 [INFO ] socket[4] connected!
+a.out : 12:16:32 [INFO ] Table select successfully
+
+a.out : 12:16:32 [INFO ] database write to server successfully!
+a.out : 12:16:32 [INFO ] Delete first data successfully!
+
+a.out : 12:16:32 [INFO ] DELETE sqlite database successfully!
+a.out : 12:16:34 [INFO ] It  is not time to sample! 
+a.out : 12:16:34 [INFO ] socket[4] connected!
+a.out : 12:16:34 [INFO ] Table select successfully
+
+a.out : 12:16:34 [INFO ] database write to server successfully!
+a.out : 12:16:34 [INFO ] Delete first data successfully!
+
+a.out : 12:16:34 [INFO ] DELETE sqlite database successfully!
+a.out : 12:16:36 [INFO ] It  is not time to sample! 
+a.out : 12:16:36 [INFO ] socket[4] connected!
+a.out : 12:16:36 [INFO ] Table select successfully
+
+a.out : 12:16:36 [INFO ] database write to server successfully!
+a.out : 12:16:36 [INFO ] Delete first data successfully!
+
+a.out : 12:16:36 [INFO ] DELETE sqlite database successfully!
+a.out : 12:16:39 [WARN ] sockfd[4] disconnected!
+a.out : 12:16:39 [INFO ] creat socket[4] successfully
+
+a.out : 12:16:39 [ERROR] connect to server[192.168.2.40:8089]failure :Connection refused!
+a.out : 12:16:39 [ERROR] socket restart connect failure!
+a.out : 12:16:39 [WARN ] Breaking and write to database!
+a.out : 12:16:39 [INFO ] Table insert  successfully
+a.out : 13:56:18 [INFO ] creat socket[4] successfully
+
+a.out : 13:56:56 [INFO ] creat socket[4] successfully
+
+a.out : 13:57:09 [INFO ] creat socket[4] successfully
+
+a.out : 13:57:09 [INFO ] Table created successfully
+
+a.out : 13:57:10 [INFO ] socket[4] connected!
+a.out : 13:57:10 [INFO ] Table select successfully
+
+a.out : 13:57:10 [INFO ] database write to server successfully!
+a.out : 13:57:10 [INFO ] Delete first data successfully!
+
+a.out : 13:57:10 [INFO ] DELETE sqlite database successfully!
+a.out : 13:57:10 [ERROR] socket rite to server failure!
+a.out : 13:57:10 [INFO ] Table insert  successfully
+a.out : 13:57:10 [ERROR] INSERT to database failure!
+a.out : 13:57:12 [INFO ] It  is not time to sample! 
+a.out : 13:57:12 [INFO ] socket[4] connected!
+a.out : 13:57:12 [INFO ] Table select successfully
+
+a.out : 13:57:12 [INFO ] database write to server successfully!
+a.out : 13:57:12 [INFO ] Delete first data successfully!
+
+a.out : 13:57:12 [INFO ] DELETE sqlite database successfully!
+a.out : 13:57:14 [INFO ] It  is not time to sample! 
+a.out : 13:57:14 [INFO ] socket[4] connected!
+a.out : 13:57:14 [INFO ] Table select successfully
+
+a.out : 13:57:14 [INFO ] database write to server successfully!
+a.out : 13:57:14 [INFO ] Delete first data successfully!
+
+a.out : 13:57:14 [INFO ] DELETE sqlite database successfully!
+a.out : 13:57:16 [INFO ] It  is not time to sample! 
+a.out : 13:57:16 [INFO ] socket[4] connected!
+a.out : 13:57:16 [INFO ] Table select successfully
+
+a.out : 13:57:16 [INFO ] database write to server successfully!
+a.out : 13:57:16 [INFO ] Delete first data successfully!
+
+a.out : 13:57:16 [INFO ] DELETE sqlite database successfully!
+a.out : 13:57:18 [INFO ] It  is not time to sample! 
+a.out : 13:57:18 [INFO ] socket[4] connected!
+a.out : 13:57:18 [INFO ] Table select successfully
+
+a.out : 13:57:18 [INFO ] database write to server successfully!
+a.out : 13:57:18 [INFO ] Delete first data successfully!
+
+a.out : 13:57:18 [INFO ] DELETE sqlite database successfully!
+a.out : 13:57:20 [INFO ] It  is not time to sample! 
+a.out : 13:57:20 [INFO ] socket[4] connected!
+a.out : 13:57:20 [INFO ] Table select successfully
+
+a.out : 13:57:20 [INFO ] database write to server successfully!
+a.out : 13:57:20 [INFO ] Delete first data successfully!
+
+a.out : 13:57:20 [INFO ] DELETE sqlite database successfully!
+a.out : 14:10:18 [INFO ] creat socket[4] successfully
+
+a.out : 14:10:18 [INFO ] Table created successfully
+
+a.out : 14:10:19 [INFO ] socket[4] connected!
+a.out : 14:10:19 [INFO ] Table select successfully
+
+a.out : 14:10:19 [INFO ] database write to server successfully!
+a.out : 14:10:19 [INFO ] Delete first data successfully!
+
+a.out : 14:10:19 [INFO ] DELETE sqlite database successfully!
+a.out : 14:10:19 [ERROR] socket rite to server failure!
+a.out : 14:10:19 [INFO ] Table insert  successfully
+a.out : 14:10:19 [ERROR] INSERT to database failure!
+a.out : 14:10:21 [INFO ] It  is not time to sample! 
+a.out : 14:10:21 [INFO ] socket[4] connected!
+a.out : 14:10:21 [INFO ] Table select successfully
+
+a.out : 14:10:21 [INFO ] database write to server successfully!
+a.out : 14:10:21 [INFO ] Delete first data successfully!
+
+a.out : 14:10:21 [INFO ] DELETE sqlite database successfully!
