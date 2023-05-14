@@ -43,6 +43,7 @@ void print_usage(char *progname)
 	return ;
 
 }
+
 int get_sn(char *name)
 {
 	int sn = 2;
@@ -60,14 +61,14 @@ int main(int argc,char **argv)
 	long                  now_time = 0;
 	long                  pick_time = 0;
 	int                   rv=-1;
-	int                   interval_time = -1;
+	int                   interval_time = 0;
 	struct timeval        tv;
 	socket_t              sock_init1={-1,"127.0.0.1",8089};
 	socket_t              *sock_info = &sock_init1;
 	char                  save__buf[128];
 	char                  buf1[128];
 	char                  buf2[128];
-	message_s             pack_info1 ;
+	message_s             pack_info1;
 	struct option         opts[] = {
 		{"ipaddr",required_argument,NULL,'i'},
 		{"port",required_argument,NULL,'p'},
@@ -95,23 +96,22 @@ int main(int argc,char **argv)
 				print_usage(argv[0]);
 				break;
 			default:
-				printf("unknow return val %d\n",ch);
+				printf("unknow return value %d\n",ch);
 		}
 
+	}
+
+	if(!((interval_time &&sock_info->hostname&&sock_info->port)))
+	{
+		print_usage(argv[0]);
+		return 0;
 	}
 
 	if(logger_init("running.log",LOG_LEVEL_DEBUG)<0)
 	{
 		fprintf(stderr,"initial logger system failure\n");
-		return -2;
+		return -1;
 	}
-
-	if(!interval_time && !sock_info->hostname && !port)
-	{
-		print_usage(argv[0]);
-		return -3;
-	}
-
 
 	if((rv = sock_init(sock_info))<0)
 	{
@@ -128,7 +128,7 @@ int main(int argc,char **argv)
 	if((rv = sqlite_init(dbname))<0)
 	{
 		log_error("database initial false!");
-		return -6;
+		return -2;
 	}  
 
 	while(!g_stop)
@@ -139,36 +139,36 @@ int main(int argc,char **argv)
 
 		if((now_time-pick_time)>=interval_time)
 		{
-			flag = 1;//sample data
+			flag = 1;//sample data and write to server or database
 
 			if((rv=get_sn(pack_info1.name))<0)
 			{
 				log_error("get serialnumber failure!");
-				return -4;
+				return -3;
 			}
 
 			if((rv=get_temperature(&pack_info1.temp))<0)
 			{
 				log_error("get temperature failure!");
-				return -5;
+				return -4;
 			}
 
 			if((pick_time=get_time(pack_info1.time1))<0)
 			{
 				log_error("get time failure!");
-				return -6;
+				return -5;
 			}
 
 			memset(buf1,0,sizeof(buf1));
 			snprintf(buf1,sizeof(buf1),"%s/%f/%s\n",pack_info1.name,pack_info1.temp,pack_info1.time1);
-			printf("%s/%f/%s\n",pack_info1.name,pack_info1.temp,pack_info1.time1);
+			//printf("%s/%f/%s\n",pack_info1.name,pack_info1.temp,pack_info1.time1);
 
 		}
 
 		else
 		{
 			flag = 0;
-			log_info("It  is not time to sample! ");
+			log_info("It  is not time to sample data! ");
 		}
 
 		socket_connected = get_sock_state(sock_info);//返回0表示断开socke,返回1表示socket连接
@@ -181,36 +181,41 @@ int main(int argc,char **argv)
 			{         
 				log_error("get table failure!\n");
 			}
+
 			else
 			{
-				memset(buf2,0,sizeof(buf2));
-				snprintf(buf2,sizeof(buf2),"%s",save__buf);
+				if(flag)
+				{
+					memset(buf2,0,sizeof(buf2));
+					snprintf(buf2,sizeof(buf2),"%s",save__buf);
+					if(( rv = write(sock_info->fd,buf2,strlen(buf2)))<0)
+					{
+						log_error("database write to server failure!");
+					}
 
-				if( rv = write(sock_info->fd,buf2,strlen(buf2))<0)
-				{
-					log_error("database write to server failure!");
-				}
-				else
-				{
-					log_info("database write to server successfully!");
-				}
+					else
+					{
+						log_info("database write to server successfully!");
+					}
 
-				if(( rv = sqlite_delect())<0)
-				{
-					log_error("database delect failure!");
-				}
-				else
-				{
-					log_info("DELETE sqlite database successfully!");
+					if(( rv = sqlite_delect())<0)
+					{
+						log_error("database delect failure!");
+					}
+					else
+					{
+						log_info("DELETE sqlite database successfully!");
+					}
+					sleep(2);
 				}
 
 			}
 
-			if(flag)
+			if(flag)//socket connect and It is time to sample
 			{
-				if(	rv = write(sock_info->fd,buf1,strlen(buf1))<0);
+				if((rv = write(sock_info->fd,buf1,strlen(buf1)))<0);//if socket write failure ,write to database
 				{
-					log_error("socket rite to server failure!");
+					log_error("socket write to server failure!");
 
 					sqlite_insert(pack_info1);
 
@@ -229,19 +234,21 @@ int main(int argc,char **argv)
 
 			if((rv = sock_connect(sock_info))<0)
 			{
-				log_error("socket restart connect failure!");
+				log_error("socket restart connect[%s:%d] failure!",sock_info->hostname,sock_info->port);
 				close(sock_info->fd);
 				sock_info->fd = -1;
 				log_warn("Breaking and write to database!");
 			}
+
 			else
 			{
-				log_info("socket restart connect successfully!");
+				log_info("socket restart connect[%s:%d] successfully!",sock_info->hostname,sock_info->port);
 				socket_connected = 1;
 			}
 
-			if(flag)
-			{	  
+			if(flag)//socket disconnect and It is time to sample data so write to database
+			{	
+				sqlite_init(dbname);
 				rv = sqlite_insert(pack_info1);
 
 				if(rv<0)
@@ -252,7 +259,7 @@ int main(int argc,char **argv)
 
 		}
 
-		sleep(2);
+		sleep(1);
 	}
 	sqlite_close();
 	logger_term();

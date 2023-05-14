@@ -14,14 +14,13 @@
 #include <stdlib.h>
 #include"database.h"
 #include"packinfo.h"
+#include"logger.h"
+#include"sock_server.h"
 
 #define  ARRAY_SIZE(x)    (sizeof(x)/sizeof(x[0]))
 
 static inline void msleep(unsigned long ms);
 static inline void print_usage(char *progname);
-int socket_server_init(char *listen_ip,int listen_port);//每一次sock都是一样，所以抽象成一个函数
-
-
 
 int main(int argc,char **argv)
 {
@@ -69,27 +68,45 @@ int main(int argc,char **argv)
 
 
 	}
+
 	if(!serv_port)
 	{
 		print_usage(progname);
 		return -1;
 	}
 
-	if((listenfd = socket_server_init(NULL,serv_port))<0)
+	if( logger_init("stdout", LOG_LEVEL_DEBUG) < 0)
 	{
-		printf("ERROR:%s server listen on port %d  failure\n",argv[0],serv_port);
+		fprintf(stderr, "initial logger system failure\n");
 		return -2;
 	}
-	printf("%s server start to listen on port %d\n",argv[0],serv_port);
+
+	if((listenfd = socket_server_init(NULL,serv_port))<0)
+	{
+		log_error("ERROR:%s server listen on port %d  failure\n",argv[0],serv_port);
+		return -3;
+	}
+	log_info("%s server start to listen on port %d\n",argv[0],serv_port);
 	/* set program running on background*/
+   if(sqlite_init(db_name)<0)
+   {
+        log_warn("database initial failure!");
+   }
+   else
+   {
+        log_info("database initialization ok!");
+   }
 	if(daemon_run)
 	{
 		daemon(0,0);
+		log_info("running daemon successfully!");
 	}
+
 	for(i=0;i<ARRAY_SIZE(fds_arry);i++)
 	{
 		fds_arry[i] = -1;
 	}
+
 	fds_arry[0] = listenfd;
 	for( ; ; )
 	{
@@ -105,12 +122,12 @@ int main(int argc,char **argv)
 		rv = select(maxfd+1,&rdset,NULL,NULL,NULL);
 		if(rv<0)
 		{
-			printf("select failure :%s\n",strerror(errno));
+			log_error("select failure :%s\n",strerror(errno));
 			break;
 		}
 		else if(0==rv)
 		{
-			printf(" select get timeout\n");
+			log_warn(" select get timeout\n");
 			continue;
 		}
 		/*listen socket get event means new client start connect now*/
@@ -118,7 +135,7 @@ int main(int argc,char **argv)
 		{
 			if((connefd=accept(listenfd,(struct sockaddr *)NULL,NULL))<0)
 			{
-				printf("accpt new client failure :%s\n",strerror(errno));
+				log_info("accpt new client failure :%s\n",strerror(errno));
 				continue;
 			}
 
@@ -127,7 +144,7 @@ int main(int argc,char **argv)
 			{
 				if(fds_arry[i]<0)
 				{
-					printf("accept new client[%d] and add it into array\n",connefd);
+					log_info("accept new client[%d] and add it into array\n",connefd);
 
 					fds_arry[i] = connefd;
 					found = 1;
@@ -136,7 +153,7 @@ int main(int argc,char **argv)
 			}
 			if(!found)
 			{
-				printf("accept new client[%d] but full ,so refuse it\n",connefd);
+				log_warn("accept new client[%d] but full ,so refuse it\n",connefd);
 				close(connefd);
 			}
 		}
@@ -148,29 +165,21 @@ int main(int argc,char **argv)
 					continue;
 				if((rv = read(fds_arry[i],buf,sizeof(buf)))<=0)
 				{
-					printf("socket[%d] read failure or get disconncet.\n",fds_arry[i]);
+					log_warn("socket[%d] read failure or get disconncet.\n",fds_arry[i]);
 					fds_arry[i] = -1;
 				}
 				else
 				{
-					printf("From socket[%d]  get some temperature information and save to database\n ",fds_arry[i]);
-
-					sqlite_init(db_name);
+					log_info("From socket[%d]  get some temperature information and save to database\n ",fds_arry[i]);
 
 					snprintf(pack_info1.name,sizeof(pack_info1.name),"%s",strtok(buf,q));
 					pack_info1.temp = atoi(strtok(NULL,q));
 					snprintf(pack_info1.time1,sizeof(pack_info1.time1),"%s",strtok(NULL,q));
 
-					printf("%s/%f/%s\n",pack_info1.name,pack_info1.temp,pack_info1.time1);
+					log_info("%s/%f/%s\n",pack_info1.name,pack_info1.temp,pack_info1.time1);
 					sqlite_insert(pack_info1);
-					printf("save to database ok!\n");
+					log_info("save to database ok!\n");
 
-					if(write(fds_arry[i],buf,rv)<0)
-					{
-						printf("socket [%d write failure:%s\n]",fds_arry[i],strerror(errno));
-						close(fds_arry[i]);
-						fds_arry[i] = -1;
-					}
 				}
 			}
 		}
@@ -204,56 +213,4 @@ static inline void print_usage(char *progname)
 	return ;
 }
 
-
-int socket_server_init(char *listen_ip,int listen_port)
-{
-	struct sockaddr_in        servaddr;
-	int                       rv = 0;
-	int                       on = 1;
-	int                       listenfd;
-	if((listenfd = socket(AF_INET,SOCK_STREAM,0))<0)
-	{
-		printf("Use socket() to create a TCP socket failure :%s\n",strerror(errno));
-		return -1;
-	}
-	/*Set socket port reuseable,fix 'Address already in use' bug when socket server restart*/
-	setsockopt(listenfd,SOL_SOCKET,SO_REUSEADDR,&on,sizeof(on));
-
-	memset(&servaddr,0,sizeof(servaddr));
-	servaddr.sin_family = AF_INET;
-	servaddr.sin_port = htons(listen_port);
-
-	if(!listen_ip)//listen all the local IP address
-	{
-		servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
-	}
-	else//liten the specified IP address
-	{
-		if(inet_pton(AF_INET,listen_ip,&servaddr.sin_addr)<=0)
-		{
-			printf("inet_pton() set listen IP address failure.\n");
-			rv = -2;
-			goto CleanUp;
-		}
-	}
-	if(bind(listenfd,(struct sockaddr*)&servaddr,sizeof(servaddr))<0)
-	{
-		printf("Use bind() to bind the TCP socket failure :%s\n",strerror(errno));
-		rv = -3;
-		goto CleanUp;
-	}
-	if(listen(listenfd,13)<0)
-	{
-		printf("Use bind() to bind the TCP socket failure:%s\n",strerror(errno));
-		rv = -4;
-		goto CleanUp;
-	}
-CleanUp:
-	if(rv<0)
-		close(listenfd);
-	else
-		rv = listenfd;
-	return rv;
-
-}
 

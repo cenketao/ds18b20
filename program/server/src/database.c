@@ -107,9 +107,9 @@ int  get_table(char *send_buf)
 	char *zErrMsg = 0;
 	int  rc;
 	char **dbResult;
-	int  nRow = 0;//行数
-	int  nColumn = 0;//列数
-	char sql[128]="SELECT * FROM TEMPERATURE LIMIT 1;";
+	int  nRow = 0;
+	int  nColumn = 0;//查出的总行数，存储列数
+	char sql[128]="SELECT *from TEMPERATURE LIMIT 1";
 	/* Open database */
 
 	/* Create SQL statement */
@@ -125,16 +125,8 @@ int  get_table(char *send_buf)
 	{
 		log_info("Table select successfully\n");
 	}
+	snprintf(send_buf,128,"%s/%s/%s",dbResult[5],dbResult[6],dbResult[7]);
 
-	if(nRow==1)
-	{
-    	snprintf(send_buf,128,"%s/%s/%s",dbResult[5],dbResult[6],dbResult[7]);
-    }
-
-    else
-	{
-        log_info("database don't have data!");
-	}
 	return 0;
 }
 int sqlite_delect(void)

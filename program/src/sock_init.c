@@ -50,7 +50,7 @@ int sock_init(socket_t *sock_info)
 				for(; *pptr!=NULL;pptr++)
 
 					printf("server IP address : %s\n",inet_ntop(host->h_addrtype,*pptr,str,sizeof(str)));
-				printf("%s\n",str);
+			    	printf("%s\n",str);
 
 				strncpy(sock_info->hostname,str,64);
 				break;
